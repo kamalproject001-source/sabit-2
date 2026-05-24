@@ -1,0 +1,6 @@
+{
+  "name": "Tataruang.In",
+  "description": "Platform konsultasi tata ruang digital berbasis kearifan lokal Nusantara.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

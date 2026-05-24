@@ -1,0 +1,87 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "fullName": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["user", "volunteer", "admin"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "fullName", "email", "role"]
+    },
+    "KnowledgeBase": {
+      "title": "Knowledge Base",
+      "description": "Nusantara spatial planning local wisdom",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "region": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "content": { "type": "string" },
+        "imageUrl": { "type": "string" }
+      },
+      "required": ["title", "description", "content"]
+    },
+    "Consultation": {
+      "title": "Consultation",
+      "description": "Spatial planning consultation request",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "status": { "type": "string", "enum": ["open", "in_progress", "closed"] },
+        "expertId": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "messages": { 
+          "type": "array", 
+          "items": { 
+            "type": "object",
+            "properties": {
+              "senderId": { "type": "string" },
+              "text": { "type": "string" },
+              "timestamp": { "type": "string", "format": "date-time" }
+            }
+          }
+        }
+      },
+      "required": ["userId", "title", "description", "status"]
+    },
+    "ForumPost": {
+      "title": "Forum Post",
+      "description": "Community discussion post",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "title", "content"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "knowledge_base/{wisdomId}": {
+      "schema": "KnowledgeBase",
+      "description": "Knowledge repository"
+    },
+    "consultations/{consultationId}": {
+      "schema": "Consultation",
+      "description": "Consultation tickets"
+    },
+    "forum_posts/{postId}": {
+      "schema": "ForumPost",
+      "description": "Discussion forum"
+    }
+  }
+}

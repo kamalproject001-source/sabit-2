@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-brand-green-light: #f0fdf4;
+  --color-brand-green-mid: #10b981;
+  --color-brand-green-dark: #064e3b;
+  --color-brand-slate-50: #f8fafc;
+  --color-brand-slate-100: #f1f5f9;
+  --color-brand-slate-900: #0f172a;
+}
+
+body {
+  @apply font-sans bg-white text-brand-slate-900 selection:bg-brand-green-mid/20 selection:text-brand-green-dark;
+}
+
+.card-modern {
+  @apply bg-white border border-brand-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-[2.5rem] transition-all duration-300 hover:shadow-[0_20px_40px_rgb(16,185,129,0.08)] hover:-translate-y-1;
+}
+
+.btn-modern {
+  @apply bg-brand-green-mid text-white px-8 py-4 rounded-2xl font-bold text-sm tracking-tight transition-all active:scale-[0.98] shadow-lg shadow-brand-green-mid/20 hover:bg-brand-green-dark hover:shadow-brand-green-mid/30;
+}
+
+.glass-nav {
+  @apply !bg-white/80 backdrop-blur-md border-b border-brand-slate-100;
+}
+
+.badge-modern {
+  @apply px-3 py-1 bg-brand-green-light text-brand-green-mid text-[10px] font-extrabold uppercase tracking-widest rounded-full border border-brand-green-mid/10;
+}
